@@ -1,5 +1,40 @@
 .container {
   display: grid;
-  grid-template-rows: 100vh;
-  grid-template-columns: [sidebar-start] minmax(min-content, 30rem) [sidebar-start main-start] auto [main-end];
+  grid-template-rows: 8vh min-content 7vh;
+  grid-template-columns:
+    [sidebar-start] 20rem [sidebar-end full-start] minmax(3rem, 1fr) [center-start] repeat(
+      8,
+      [col-start] minmax(min-content, 15rem) [col-end]
+    )
+    [center-end] minmax(3rem, 1fr) [full-end];
+}
+
+.sidebar {
+  background-color: aliceblue;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+}
+
+.sidebar :nth-child(1) {
+  position: sticky;
+  top: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: antiquewhite;
+  grid-column: center-start / center-end;
+}
+
+.main {
+  background-color: aqua;
+  grid-column: center-start / center-end;
+}
+
+.new-message {
+  position: sticky;
+  bottom: 0;
+  background-color: aquamarine;
+  grid-column: center-start / center-end;
 }
