@@ -1,16 +1,26 @@
 import { useEffect, useReducer, useCallback } from "react";
-// import { getMessages } from '../../api/chat';
+import { getMessages } from "../../api/chat";
 
-import { MessageAction } from "./types";
+import { Message, MessageAction } from "./types";
 
 interface MessagesState {
-  messages: [];
+  messages: Message[];
   initialized: boolean;
 }
 
 export function useChatData(): [MessagesState, React.Dispatch<MessageAction>] {
-  const chatReducer = (state: MessagesState, action: MessageAction) => {
+  const chatReducer = (state: MessagesState, action: MessageAction): MessagesState => {
     switch (action.type) {
+      case "fetch":
+        return {
+          ...state,
+          initialized: true,
+          messages: action.payload.data,
+        };
+      case "add":
+        return {
+          ...state,
+        };
       default:
         return state;
     }
@@ -22,10 +32,8 @@ export function useChatData(): [MessagesState, React.Dispatch<MessageAction>] {
   });
 
   const fetchChat = useCallback(async () => {
-    // const data = await getMessages()
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/ditto");
-    const data = await response.json();
-    console.log(data);
+    const data: Message[] = await getMessages();
+    dispatch({ type: "fetch", payload: { data } });
   }, []);
 
   useEffect(() => {

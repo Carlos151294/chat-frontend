@@ -28,10 +28,12 @@ export function SocketProvider({ children }: SocketProviderProps) {
     setSocket(socket);
 
     socket.on("connect", () => {
+      console.log('socket connected', socket.id);
       setIsConnected(true);
     });
 
     socket.on("disconnect", () => {
+      console.log('socket disconnect', socket.id);
       setIsConnected(false);
     });
 

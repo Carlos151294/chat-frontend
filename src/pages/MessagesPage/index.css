@@ -1,0 +1,5 @@
+.container {
+  display: grid;
+  grid-template-rows: 100vh;
+  grid-template-columns: [sidebar-start] minmax(min-content, 30rem) [sidebar-start main-start] auto [main-end];
+}
