@@ -1,0 +1,6 @@
+.new-message {
+    position: sticky;
+    bottom: 0;
+    background-color: #FAFBFC;
+    grid-column: center-start / center-end;
+  }

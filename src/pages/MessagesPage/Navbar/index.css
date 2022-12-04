@@ -1,0 +1,6 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  grid-column: center-start / center-end;
+  background-color: #FAFBFC;
+}

@@ -1,10 +1,13 @@
+import Divider from '@mui/material/Divider';
+
+import ConversationsList from "./ConversationsList";
 import "./index.css";
 
 const SiderBar = () => (
-  <aside className="siderbar">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae natus
-    facilis sunt aliquam maiores quasi error aspernatur, labore officiis quo a
-    sed amet exercitationem magnam earum nostrum recusandae beatae nulla.
+  <aside className="sidebar">
+    <h1>Messages</h1>
+    <Divider />
+    <ConversationsList conversations={[{ author: 'Ray'}, {author: 'Thom'}, {author: 'Harry'}, { author: 'Ray'}, {author: 'Thom'}, {author: 'Harry'}, { author: 'Ray'}, {author: 'Thom'}, {author: 'Harry'}]} />
   </aside>
 );
 
